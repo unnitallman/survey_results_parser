@@ -48,3 +48,7 @@ Successful candidates will be asked to extend their implementation in a pair pro
 Please set up a private Bitbucket Repository (Free for up to 5 user - https://bitbucket.org/) and share it with denglish (Doug English, Head of Engineering), tmoore (Tim Moore, Lead Developer), jocranford (Jo Cranford, Lead Developer) and kevinyank (Kevin Yank, Lead Developer).
 
 ￼￼￼￼￼￼￼￼￼￼￼￼￼￼We're looking forward to your innovative solutions!
+
+## Design
+
+CSVFile -> CSVParser -> Structured Data -> Loader -> Persistent Store -> Presentation
