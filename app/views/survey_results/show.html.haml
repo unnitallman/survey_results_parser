@@ -4,7 +4,7 @@
       %h1
         Results
         %small
-          = @csv_file.name
+          = @survey.name
       %ol.breadcrumb
         %li
           %a{ href: root_path }
@@ -16,13 +16,13 @@
       .panel.panel-default.text-center.count-box--fixed
         .panel-body
           .count
-            = @csv_file.participants_count
+            = @survey.participants_count
           .count-label.text-muted.text-uppercase
             Participants
       .panel.panel-default.text-center.count-box--fixed
         .panel-body
           .count
-            = "#{@csv_file.response_rate}%"
+            = "#{@survey.response_rate}%"
           .count-label.text-muted.text-uppercase
             Response rate
     .col-md-10

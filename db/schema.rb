@@ -21,12 +21,6 @@ ActiveRecord::Schema.define(version: 20150813162133) do
     t.integer "response_id"
   end
 
-  create_table "csv_files", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "questions", force: :cascade do |t|
     t.string  "question_text"
     t.integer "theme_id"
@@ -37,12 +31,18 @@ ActiveRecord::Schema.define(version: 20150813162133) do
     t.integer  "employee_id"
     t.datetime "submitted_at"
     t.string   "email"
-    t.integer  "csv_file_id"
+    t.integer  "survey_id"
+  end
+
+  create_table "surveys", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "themes", force: :cascade do |t|
     t.string  "name"
-    t.integer "csv_file_id"
+    t.integer "survey_id"
   end
 
 end

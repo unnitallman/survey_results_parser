@@ -1,11 +1,11 @@
 class SurveyResultsController < ApplicationController
   def index
-    @csv_files = CsvFile.all.order('created_at desc')
+    @surveys = Survey.all.order('created_at desc')
   end
 
   def show
-    @csv_file = CsvFile.find(params[:id])
-    @themes   = @csv_file.themes
+    @survey = Survey.find(params[:id])
+    @themes   = @survey.themes
   end
 
   def create
@@ -20,8 +20,8 @@ class SurveyResultsController < ApplicationController
   end
 
   def destroy
-    @csv_file = CsvFile.find(params[:id])
-    @csv_file.destroy
+    @survey = Survey.find(params[:id])
+    @survey.destroy
     flash[:notice] = "Survey deleted"
     redirect_to survey_results_path
   end

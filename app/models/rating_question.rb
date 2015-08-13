@@ -6,7 +6,7 @@ class RatingQuestion < Question
   private
   
   def participants_count
-    theme.csv_file.participants_count
+    theme.survey.participants_count
   end
 
 end

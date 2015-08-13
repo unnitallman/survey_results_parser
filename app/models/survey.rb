@@ -1,4 +1,4 @@
-class CsvFile < ActiveRecord::Base
+class Survey < ActiveRecord::Base
   has_many :themes, dependent: :destroy
   has_many :responses, dependent: :destroy
   

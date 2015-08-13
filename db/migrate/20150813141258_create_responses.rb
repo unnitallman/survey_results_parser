@@ -4,7 +4,7 @@ class CreateResponses < ActiveRecord::Migration
       t.integer  :employee_id
       t.datetime :submitted_at
       t.string   :email
-      t.integer  :csv_file_id
+      t.integer  :survey_id
     end
   end
 end
