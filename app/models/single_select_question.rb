@@ -1,0 +1,2 @@
+class SingleSelectQuestion < Question
+end
