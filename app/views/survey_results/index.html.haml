@@ -1,0 +1,41 @@
+.container
+  .row
+    .col-md-12
+      %h1 All Surveys
+  .row
+    .col-md-6
+      .panel.panel-default
+        .panel-heading
+          %h4 Upload Results File
+        .panel-body.file-upload
+          %form
+            %span.btn.btn-default.btn-file.file-upload-proxy
+              Browse for file
+            %input{ type: 'file', class: 'hidden' }
+            %input{ type: 'submit', class: "btn btn-primary pull-right" }
+
+      %ul.files.list-group
+        %li.list-group-item.clearfix
+          example-1.csv
+          .btn-group.pull-right
+            %a{ href: '/survey_results/1/', class: "btn btn-default"}
+              View Results
+              .glyphicon.glyphicon-stats{"aria-hidden" => "true"}
+            %a{ href: '#', class: "btn btn-danger"}
+              .glyphicon.glyphicon-remove{"aria-hidden" => "true"}
+        %li.list-group-item.clearfix
+          example-2.csv
+          .btn-group.pull-right
+            %a{ href: '/survey_results/1/', class: "btn btn-default"}
+              View Results
+              .glyphicon.glyphicon-stats{"aria-hidden" => "true"}
+            %a{ href: '#', class: "btn btn-danger"}
+              .glyphicon.glyphicon-remove{"aria-hidden" => "true"}
+        %li.list-group-item.clearfix
+          example-3.csv
+          .btn-group.pull-right
+            %a{ href: '/survey_results/1/', class: "btn btn-default"}
+              View Results
+              .glyphicon.glyphicon-stats{"aria-hidden" => "true"}
+            %a{ href: '#', class: "btn btn-danger"}
+              .glyphicon.glyphicon-remove{"aria-hidden" => "true"}
