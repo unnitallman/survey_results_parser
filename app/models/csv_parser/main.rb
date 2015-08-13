@@ -4,7 +4,7 @@ module CsvParser
   class Main
     def initialize(file)
       csv_data          = file.read
-      @surveyname     = file.original_filename
+      @surveyname       = file.original_filename
       @meta_information = CsvParser::MetaInformation.new(csv_data).parse
       @responses        = CsvParser::Responses.new(csv_data).parse
     end
