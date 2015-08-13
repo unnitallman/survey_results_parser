@@ -8,34 +8,20 @@
         .panel-heading
           %h4 Upload Results File
         .panel-body.file-upload
-          %form
+          = form_tag '/survey_results', multipart: true do
             %span.btn.btn-default.btn-file.file-upload-proxy
               Browse for file
-            %input{ type: 'file', class: 'hidden' }
+            %input{ type: 'file', class: 'hidden', name: 'file' }
             %input{ type: 'submit', class: "btn btn-primary pull-right" }
 
       %ul.files.list-group
-        %li.list-group-item.clearfix
-          example-1.csv
-          .btn-group.pull-right
-            %a{ href: '/survey_results/1/', class: "btn btn-default"}
-              View Results
-              .glyphicon.glyphicon-stats{"aria-hidden" => "true"}
-            %a{ href: '#', class: "btn btn-danger"}
-              .glyphicon.glyphicon-remove{"aria-hidden" => "true"}
-        %li.list-group-item.clearfix
-          example-2.csv
-          .btn-group.pull-right
-            %a{ href: '/survey_results/1/', class: "btn btn-default"}
-              View Results
-              .glyphicon.glyphicon-stats{"aria-hidden" => "true"}
-            %a{ href: '#', class: "btn btn-danger"}
-              .glyphicon.glyphicon-remove{"aria-hidden" => "true"}
-        %li.list-group-item.clearfix
-          example-3.csv
-          .btn-group.pull-right
-            %a{ href: '/survey_results/1/', class: "btn btn-default"}
-              View Results
-              .glyphicon.glyphicon-stats{"aria-hidden" => "true"}
-            %a{ href: '#', class: "btn btn-danger"}
-              .glyphicon.glyphicon-remove{"aria-hidden" => "true"}
+        - @csv_files.each do |csv_file|
+          %li.list-group-item.clearfix
+            = csv_file.name
+            .btn-group.pull-right
+              %a{ href: survey_result_path(csv_file), class: "btn btn-default"}
+                View Results
+                .glyphicon.glyphicon-stats{"aria-hidden" => "true"}
+              %a{ href: '#', class: "btn btn-danger"}
+                .glyphicon.glyphicon-remove{"aria-hidden" => "true"}
+        

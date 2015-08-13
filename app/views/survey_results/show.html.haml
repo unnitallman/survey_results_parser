@@ -4,7 +4,7 @@
       %h1
         Results
         %small
-          example-1.csv
+          = @csv_file.name
       %ol.breadcrumb
         %li
           %a{ href: root_path }
@@ -16,66 +16,29 @@
       .panel.panel-default.text-center.count-box--fixed
         .panel-body
           .count
-            5
+            = @csv_file.participants_count
           .count-label.text-muted.text-uppercase
             Participants
       .panel.panel-default.text-center.count-box--fixed
         .panel-body
           .count
-            83%
+            = "#{@csv_file.response_rate}%"
           .count-label.text-muted.text-uppercase
             Response rate
     .col-md-10
-      .panel.panel-default
-        .panel-heading
-          %h3 The Work
-        %ol.list-group
-          %li.list-group-item.clearfix
-            .col-md-10.text-large.text-muted
-              I like the kind of work I do.
-            .col-md-2.panel.panel-default.text-center.count-box.-nomargin
-              .panel-body
-                .count
-                  3.83
-                .count-label.text-muted.text-uppercase
-                  Average score
-          %li.list-group-item.clearfix
-            .col-md-10.text-large.text-muted
-              In general, I have the resources (e.g., business tools, information, facilities, IT or functional support) I need to be effective.
-            .col-md-2.panel.panel-default.text-center.count-box.-nomargin
-              .panel-body
-                .count
-                  4.17
-                .count-label.text-muted.text-uppercase
-                  Average score
-          %li.list-group-item.clearfix
-            .col-md-10.text-large.text-muted
-              We are working at the right pace to meet our goals.
-            .col-md-2.panel.panel-default.text-center.count-box.-nomargin
-              .panel-body
-                .count
-                  4.17
-                .count-label.text-muted.text-uppercase
-                  Average score
-      .panel.panel-default
-        .panel-heading
-          %h3 The Place
-        %ol.list-group
-          %li.list-group-item.clearfix
-            .col-md-10.text-large.text-muted
-              In general, I have the resources (e.g., business tools, information, facilities, IT or functional support) I need to be effective.
-            .col-md-2.panel.panel-default.text-center.count-box.-nomargin
-              .panel-body
-                .count
-                  3.00
-                .count-label.text-muted.text-uppercase
-                  Average score
-          %li.list-group-item.clearfix
-            .col-md-10.text-large.text-muted
-              I am appropriately involved in decisions that affect my work.
-            .col-md-2.panel.panel-default.text-center.count-box.-nomargin
-              .panel-body
-                .count
-                  3.00
-                .count-label.text-muted.text-uppercase
-                  Average score
+      - @themes.each do |theme|
+        .panel.panel-default
+          .panel-heading
+            %h3= theme.name
+          %ol.list-group
+            - theme.rating_questions.each do |question|
+              %li.list-group-item.clearfix
+                .col-md-10.text-large.text-muted
+                  = question.question_text
+                .col-md-2.panel.panel-default.text-center.count-box.-nomargin
+                  .panel-body
+                    .count
+                      = question.average_score
+                    .count-label.text-muted.text-uppercase
+                      Average score
+            
