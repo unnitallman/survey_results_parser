@@ -9,7 +9,20 @@ class SurveyResultsController < ApplicationController
   end
 
   def create
-    CsvParser::Main.new(params[:file]).load
+    begin
+      CsvParser::Main.new(params[:file]).load
+    rescue
+      flash[:error] = "Invalid file"
+    else
+      flash[:notice] = "Survey imported"
+    end
+    redirect_to survey_results_path
+  end
+
+  def destroy
+    @csv_file = CsvFile.find(params[:id])
+    @csv_file.destroy
+    flash[:notice] = "Survey deleted"
     redirect_to survey_results_path
   end
 end

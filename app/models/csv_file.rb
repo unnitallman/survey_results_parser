@@ -1,6 +1,6 @@
 class CsvFile < ActiveRecord::Base
-  has_many :themes
-  has_many :responses
+  has_many :themes, dependent: :destroy
+  has_many :responses, dependent: :destroy
   
   def participants_count
     responses.count
